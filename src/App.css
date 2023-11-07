@@ -40,3 +40,30 @@
 .read-the-docs {
   color: #ffffff;
 }
+
+/* MovieTable*/
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+tr:hover {
+  background-color: #e0e0e0;
+}
+
+.movie-poster {
+  width: 80px; /* Ajusta el ancho de la imagen según sea necesario */
+  height: auto;
+}
+

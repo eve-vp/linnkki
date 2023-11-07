@@ -1,7 +1,6 @@
 // import { useState } from 'react'
 import linkkilogo from '/logoBK.png'
 import background from '/top-view.jpg'
-import './css/MovieTable.css'
 import './App.css'
 
 function App() {

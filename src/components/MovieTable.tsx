@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import './css/MovieTable.css'; 
+
 
 const API_KEY = '480128c3202788f17d08d104b8f5c03c';
 const BASE_URL = 'https://api.themoviedb.org/3';
@@ -38,9 +38,7 @@ const MovieTable = () => {
         </thead>
         <tbody>
         {movies.map(movie => (
-
         <tr key={movie.id}>
-
         <td>
           <img 
             className="movie-poster"
@@ -48,22 +46,12 @@ const MovieTable = () => {
             alt={movie.title} 
           />
         </td>
-
-        <div className="movie-info">
-          <div className="movie-title">{movie.title}</div>
-          <div className="release-year">{movie.release_date.substring(0, 4)}</div>
-        </div>
-
-      </tr>
+        <td>{movie.title}</td>
+        <td>{movie.release_date.substring(0, 4)}</td>
+        </tr> 
 
       ))}
-
-              {/* </td>
-              <td>{movie.title}</td>
-              <td>{movie.release_date.substring(0, 4)}</td>
-            </tr> */}
-          
-        </tbody>
+      </tbody>
 
         </table>
           <button onClick={handlePrevPage} disabled={page === 1}>
