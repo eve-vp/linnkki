@@ -6,7 +6,8 @@
     "ES2020",
     "DOM",
     "DOM.Iterable",
-    "ESNext.AsyncIterable"
+    "ESNext.AsyncIterable",
+  
   ],
     "module": "ESNext",
     "skipLibCheck": true,

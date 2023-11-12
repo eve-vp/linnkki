@@ -3,7 +3,7 @@
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
-}
+  }
 
 .logo {
   height: 6em;
@@ -12,7 +12,7 @@
   transition: filter 300ms;
 }
 .logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
+  filter: drop-shadow(0 0 2em #f120bdaa);
 }
 .logo.react:hover {
   filter: drop-shadow(0 0 2em #61dafbaa);
@@ -30,6 +30,7 @@
 @media (prefers-reduced-motion: no-preference) {
   a:nth-of-type(2) .logo {
     animation: logo-spin infinite 20s linear;
+    background-color: #87d8cd;
   }
 }
 
@@ -44,6 +45,12 @@
 /* MovieTable*/
 
 .movie-poster {
-  width: 300px; /* Ajusta el tamaño de la imagen según sea necesario */
-  height: 500px;
-}
+  width: 210px; /* Ajusta el tamaño de la imagen según sea necesario */
+  height: 315px;
+};
+
+.marginTop {
+  background-color:aquamarine';
+};
+
+

@@ -23,7 +23,7 @@ const root = createRoot(rootElement);
   <Routes>
 
     <Route path="/" element={<App />} />
-    <Route path="*" element={<MovieTable />} />
+    <Route path="Movies" element={<MovieTable />} />
 
   </Routes> 
 </BrowserRouter>

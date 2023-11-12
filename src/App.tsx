@@ -29,7 +29,7 @@ function App() {
       </h2>
       <div className="card">
       <div className="container">
-      <a className="btn" href="../components/MovieTable"><h1>let's go</h1></a>
+      <a className="btn" href="/Movies"><h1>let's go</h1></a>
       </div>
         {/* <button onClick={() => setCount((count) => count + 1)}>
           count is {count}

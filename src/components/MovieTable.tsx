@@ -1,9 +1,10 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+import FilterComponent from './FilterComponent';
 
 
 const API_KEY = '480128c3202788f17d08d104b8f5c03c';
-const BASE_URL = 'https://api.themoviedb.org/3/discover/movie';
+const BASE_URL = 'https://api.themoviedb.org/3/movie/top_rated?api_key=480128c3202788f17d08d104b8f5c03c&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=20&primary_release_date.gte=1960-01-01&primary_release_date.lte=1990-12-31';
 
 const MovieTable = () => {
   const [movies, setMovies] = useState([]);
@@ -31,6 +32,12 @@ const MovieTable = () => {
   const itemsPerPage = itemsPerRow * 2; // Número de películas por página
   const totalPages = Math.ceil(movies.length / itemsPerPage); // Total de páginas
   
+
+  const handleFilter = async (genre, sort) => {
+    const data = await getMovies(1, genre, sort);
+    setMovies(data.results);
+  }
+
   const renderMovies = (start, end) => {
     return movies.slice(start, end).map((movie) => (
       <div key={movie.id} style={{ margin: '10px', textAlign: 'center', flex: '0 0 25%' }}>
@@ -45,18 +52,25 @@ const MovieTable = () => {
         </div>
       </div>
     ));
+    
   };
   
   return (
-    <div style={{ maxWidth: '100vw', display: 'flex', flexDirection: 'column', alignItems: 'center', overflow: 'hidden' }}>
-      <div style={{ maxHeight: 'calc(100vh - 200px)', overflowY: 'scroll', width: '100%', display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '20px' }}>
+  
+    <div style={{ maxWidth: '100vw', display: 'flex', flexDirection: 'column', alignItems: 'center', overflow: 'hidden', backgroundColor: '#6BB2AE' }}>
+      <header>
+        {/* Agregar el componente FilterComponent en la cabecera */}
+        <FilterComponent onFilter={(selectedGenre, selectedSort) => handleFilter(selectedGenre, selectedSort)} />
+      </header>
+      <div style={{ maxHeight: 'calc(100vh - 200px)', overflowY: 'scroll', width: '100%', display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '20px', backgroundColor: '#Beige' }}>
         {renderMovies(0, movies.length)}
       </div>
+    
       <div style={{ marginTop: '20px', marginBottom: '20px', maxWidth: '800px', display: 'flex', justifyContent: 'center' }}>
         <button onClick={handlePrevPage} disabled={page === 1}>
           Previous Page
         </button>
-        {Array.from({ length: Math.min(totalPages, 10) }, (_, index) => (
+        {Array.from({ length: Math.min(totalPages, 20) }, (_, index) => (
           <button key={index + 1} onClick={() => setPage(index + 1)}>
             {index + 1}
           </button>
