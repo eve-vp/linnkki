@@ -34,23 +34,99 @@
   }
 }
 
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #ffffff;
-}
-
 /* MovieTable*/
+.movie-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-gap: 16px;
+  max-height: 400px; /* Establecer una altura máxima */
+  padding: 20px;
+  overflow-y: auto; /* Agregar un scroll vertical si el contenido es más alto que la altura máxima */
+  overflow-x: hidden;
+}
 
-.movie-poster {
-  width: 210px; /* Ajusta el tamaño de la imagen según sea necesario */
-  height: 315px;
-};
+.movie-grid div {
+  position: relative;
+}
 
-.marginTop {
-  background-color:aquamarine';
-};
+.movie-grid img {
+  width: 150px;
+  height: auto;
+}
 
+.movie-grid h4, .movie-grid p {
+  position: absolute;
+  bottom: 0;
+  padding: 8px;
+  background-color: rgba(26, 177, 157, 0.5);
+  color: white;
+  width: 150px;
+  text-align: center;
+}
 
+.movie-grid p {
+  bottom: 50px;
+}
+
+.pagination-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px; /* Ajusta según sea necesario */
+}
+
+.pagination {
+  list-style: none;
+  display: flex; /* Esto cambia la presentación de la lista a una fila horizontal */
+  padding: 0;
+  margin: 0;
+}
+
+.pagination li {
+  margin: 0.2em;
+}
+
+.pagination button {
+  /* Estilos generales para todos los botones de paginación */
+  margin: 0;
+  padding: 0.5em;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  cursor: pointer;
+}
+
+.pagination button.active {
+  /* Estilos para la página actual */
+  background-color: #ffd900;
+  color: #fff;
+  font-weight: bold;
+}
+
+.pagination button:disabled {
+  /* Estilos para botones deshabilitados (Previous y Next) */
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.loading-animation {
+  background-color: rgba(255, 255, 255, 0.8);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  font-size: 1.5em;
+  animation: fadeInOut 1.5s infinite;
+}
+
+@keyframes fadeInOut {
+  0%, 100% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+}
