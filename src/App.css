@@ -33,6 +33,20 @@
     background-color: #87d8cd;
   }
 }
+.section-with-bars {
+  display: flex;
+  height: 100px; 
+}
+
+.left-bar {
+  background: red;
+  width: 100px;
+}
+
+.right-bar {  
+  background: blue;
+  width: 100px;  
+}
 
 /* MovieTable*/
 .movie-grid {
@@ -57,9 +71,9 @@
 .movie-grid h4, .movie-grid p {
   position: absolute;
   bottom: 0;
-  padding: 8px;
-  background-color: rgba(163, 230, 221, 0.5);
-  color: white;
+  /* padding: 3px; */
+  background-color: rgba(163, 230, 221, 0.705);
+  color: rgb(0, 0, 0);
   width: 150px;
   text-align: center;
 }
@@ -71,6 +85,9 @@
 .pagination-container {
   background-color: #ffd900;
   color: #000;
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
 }
 
 /* Modo oscuro */
@@ -86,7 +103,7 @@ body.dark-mode .pagination-container {
 
 body.dark-mode .pagination button.active {
   background-color: #0056b3;
-  color: #fff;
+  color: #020202;
 }
 @media (prefers-color-scheme: dark) {
   .pagination-container {
@@ -94,15 +111,6 @@ body.dark-mode .pagination button.active {
     color: #661a1a;
   }
 
-  .pagination button.active {
-    background-color: #0056b3;
-    color: #fff;
-  }
-}
-.pagination-container {
-  display: flex;
-  justify-content: center;
-  margin-top: 20px;
 }
 
 .pagination {
@@ -119,13 +127,13 @@ body.dark-mode .pagination button.active {
 .pagination button {
   margin: 0;
   padding: 0.5em;
-  border: 1px solid #ccc;
-  background-color: #fff;
+  border: 1px solid rgb(7, 54, 107);
+  background-color:   #bb6c22;
   cursor: pointer;
 }
 
 .pagination button.active {
-  color: #fff;
+  color: #bb6c22;
   font-weight: bold;
   background-color: #007bff; /* Puedes ajustar este color según tus preferencias */
 }

@@ -6,6 +6,7 @@ import axios from 'axios';
 interface OrderMovieProps {
   currentOrder: string;
   onOrderChange: (order: string) => void;
+  className?: string; // Propiedad opcional
 }
 
 const OrderMovie: React.FC<OrderMovieProps> = ({ currentOrder, onOrderChange }) => {

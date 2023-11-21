@@ -17,7 +17,6 @@ interface MovieResponse {
   results: Movie[];
   total_pages: number;
 }
-
 const MovieGrid: React.FC = () => {
   const [movies, setMovies] = useState<Movie[]>([]);
   const [currentPage, setCurrentPage] = useState(1);
@@ -66,8 +65,8 @@ const MovieGrid: React.FC = () => {
   return (
     <div className="movie-2010-grid-container">
       <div className="head-container">
-        <SearchMovie onSearch={handleSearch} />
-        <OrderMovie currentOrder={currentOrder} onOrderChange={setCurrentOrder} />
+        <SearchMovie onSearch={handleSearch} className="left-bar"/>
+        <OrderMovie currentOrder={currentOrder} onOrderChange={setCurrentOrder} className="right-bar"/>
       </div>
       <div className="movie-grid">
         {movies.map((movie) => (

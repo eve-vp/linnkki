@@ -8,6 +8,7 @@ interface Genre {
 
 interface SearchMovieProps {
   onSearch: (genre: string) => void;
+  className?: string; // Propiedad opcional
 }
 
 const SearchMovie: React.FC<SearchMovieProps> = ({ onSearch }) => {
