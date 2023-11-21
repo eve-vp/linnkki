@@ -12,7 +12,8 @@ module.exports = {
     '^.+\\.(ts|tsx)$': 'ts-jest',
     '^.+\\.(js|jsx)$': 'babel-jest', // Añade esta línea para archivos JSX/JavaScript
   },
-  testEnvironment: 'node', // Asegúrate de establecer este entorno para proyectos Node.js
+  // testEnvironment: 'node', // Asegúrate de establecer este entorno para proyectos Node.js
+  testEnvironment: 'jsdom'
 };
 
 

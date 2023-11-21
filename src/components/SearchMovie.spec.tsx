@@ -1,6 +1,9 @@
 // import React from 'react';
-import { render, screen, fireEvent } from '@testing-library/react';
+import { cleanup, render, screen } from '@testing-library/react';
 import SearchMovie from './SearchMovie';
+
+afterEach(cleanup); 
+
 
 // Ignore React import warning
 jest.mock('react', () => ({

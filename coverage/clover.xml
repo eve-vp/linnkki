@@ -1,30 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1700608586922" clover="3.2.0">
-  <project timestamp="1700608586923" name="All files">
-    <metrics statements="21" coveredstatements="3" conditionals="2" coveredconditionals="0" methods="6" coveredmethods="0" elements="29" coveredelements="3" complexity="0" loc="21" ncloc="21" packages="1" files="1" classes="1"/>
-    <file name="SearchMovie.tsx" path="C:\_Laboratoria\linnkki-Movie-Challenge-React\src\components\SearchMovie.tsx">
-      <metrics statements="21" coveredstatements="3" conditionals="2" coveredconditionals="0" methods="6" coveredmethods="0"/>
-      <line num="2" count="1" type="stmt"/>
-      <line num="14" count="1" type="stmt"/>
-      <line num="15" count="0" type="stmt"/>
-      <line num="16" count="0" type="stmt"/>
-      <line num="18" count="0" type="stmt"/>
-      <line num="19" count="0" type="stmt"/>
-      <line num="20" count="0" type="stmt"/>
-      <line num="21" count="0" type="stmt"/>
-      <line num="22" count="0" type="stmt"/>
-      <line num="24" count="0" type="cond" truecount="0" falsecount="2"/>
-      <line num="25" count="0" type="stmt"/>
-      <line num="26" count="0" type="stmt"/>
-      <line num="28" count="0" type="stmt"/>
-      <line num="31" count="0" type="stmt"/>
-      <line num="35" count="0" type="stmt"/>
-      <line num="38" count="0" type="stmt"/>
-      <line num="39" count="0" type="stmt"/>
-      <line num="42" count="0" type="stmt"/>
-      <line num="44" count="0" type="stmt"/>
-      <line num="49" count="0" type="stmt"/>
-      <line num="62" count="1" type="stmt"/>
-    </file>
+<coverage generated="1700609465164" clover="3.2.0">
+  <project timestamp="1700609465164" name="All files">
+    <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0" elements="0" coveredelements="0" complexity="0" loc="0" ncloc="0" packages="0" files="0" classes="0"/>
   </project>
 </coverage>
