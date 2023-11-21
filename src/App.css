@@ -58,7 +58,7 @@
   position: absolute;
   bottom: 0;
   padding: 8px;
-  background-color: rgba(26, 177, 157, 0.5);
+  background-color: rgba(163, 230, 221, 0.5);
   color: white;
   width: 150px;
   text-align: center;
@@ -67,16 +67,47 @@
 .movie-grid p {
   bottom: 50px;
 }
+/* Modo claro */
+.pagination-container {
+  background-color: #ffd900;
+  color: #000;
+}
 
+/* Modo oscuro */
+body.dark-mode .pagination-container {
+  background-color: #ffd900;
+  color: #000000;
+}
+
+.pagination button.active {
+  background-color: #007bff;
+  color: #5f1f1f;
+}
+
+body.dark-mode .pagination button.active {
+  background-color: #0056b3;
+  color: #fff;
+}
+@media (prefers-color-scheme: dark) {
+  .pagination-container {
+    background-color: #333;
+    color: #661a1a;
+  }
+
+  .pagination button.active {
+    background-color: #0056b3;
+    color: #fff;
+  }
+}
 .pagination-container {
   display: flex;
   justify-content: center;
-  margin-top: 20px; /* Ajusta según sea necesario */
+  margin-top: 20px;
 }
 
 .pagination {
   list-style: none;
-  display: flex; /* Esto cambia la presentación de la lista a una fila horizontal */
+  display: flex;
   padding: 0;
   margin: 0;
 }
@@ -86,7 +117,6 @@
 }
 
 .pagination button {
-  /* Estilos generales para todos los botones de paginación */
   margin: 0;
   padding: 0.5em;
   border: 1px solid #ccc;
@@ -95,18 +125,17 @@
 }
 
 .pagination button.active {
-  /* Estilos para la página actual */
-  background-color: #ffd900;
   color: #fff;
   font-weight: bold;
+  background-color: #007bff; /* Puedes ajustar este color según tus preferencias */
 }
 
 .pagination button:disabled {
-  /* Estilos para botones deshabilitados (Previous y Next) */
   opacity: 0.5;
   cursor: not-allowed;
 }
 
+/* Resto de tu CSS */
 .loading-animation {
   background-color: rgba(255, 255, 255, 0.8);
   position: fixed;
@@ -129,4 +158,16 @@
   50% {
     opacity: 1;
   }
+}
+
+/* Otros estilos para tu botón de búsqueda */
+.search-button {
+  margin-left: 3px; /* Ajusta según sea necesario */
+  font-size: 1em; /* Ajusta según sea necesario */
+  cursor: pointer;
+  transition: background-color 0.3s ease; /* Agrega una transición suave al color de fondo */
+}
+
+.search-button:hover {
+  background-color: #ffd900; /* Cambia el color de fondo al pasar el cursor sobre el botón */
 }
