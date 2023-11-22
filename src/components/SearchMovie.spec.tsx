@@ -1,5 +1,7 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 // import React from 'react';
-import { cleanup, render, screen } from '@testing-library/react';
+import '@testing-library/jest-dom';
+import { cleanup, fireEvent, render, screen } from '@testing-library/react';
 import SearchMovie from './SearchMovie';
 
 afterEach(cleanup); 

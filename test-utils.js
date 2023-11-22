@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 import { cleanup } from '@testing-library/react';
 afterEach(cleanup);
 
