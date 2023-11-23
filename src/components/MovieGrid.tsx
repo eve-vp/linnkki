@@ -64,7 +64,7 @@ const MovieGrid: React.FC = () => {
 
   return (
     <div className="movie-2010-grid-container">
-      <div className="head-container">
+      <div className="section-with-bars">
         <SearchMovie onSearch={handleSearch} className="left-bar"/>
         <OrderMovie currentOrder={currentOrder} onOrderChange={setCurrentOrder} className="right-bar"/>
       </div>
@@ -74,7 +74,7 @@ const MovieGrid: React.FC = () => {
           <div key={movie.id}>
             <img src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} alt={movie.title} />
             <h4>{movie.title}</h4>
-            <p>{movie.release_date}</p>
+            <p>{movie.release_date.split('-')[0]}</p>
           </div>
           )
         ))}

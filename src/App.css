@@ -35,12 +35,13 @@
 }
 .section-with-bars {
   display: flex;
-  height: 100px; 
+  height: 30px; 
 }
 
 .left-bar {
   background: red;
   width: 100px;
+  position: left;
 }
 
 .right-bar {  
