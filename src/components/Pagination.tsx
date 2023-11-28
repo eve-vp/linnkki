@@ -1,11 +1,7 @@
-interface PaginationProps {
-  currentPage: number;
-  totalPages: number;
-  onPageChange: (page: number) => void;
-}
+import { PaginationProps } from './interfaces';
 
 const Pagination: React.FC<PaginationProps> = ({ currentPage, totalPages, onPageChange }) => {
-  const rangeSize = 10; // Puedes ajustar el tamaño del rango según tus preferencias
+  const rangeSize = 10; // ajustar el tamaño del rango
   const startPage = Math.max(1, currentPage - Math.floor(rangeSize / 2));
   const endPage = Math.min(totalPages, startPage + rangeSize - 1);
   const range = Array.from({ length: endPage - startPage + 1 }, (_, i) => startPage + i);

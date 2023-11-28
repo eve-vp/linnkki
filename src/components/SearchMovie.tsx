@@ -1,15 +1,6 @@
 /* eslint-disable no-irregular-whitespace */
 import React, { useState, useEffect } from 'react';
-
-interface Genre {
-  id: number;
-  name: string;
-}
-
-interface SearchMovieProps {
-  onSearch: (genre: string) => void;
-  className?: string; // Propiedad opcional
-}
+import { Genre, SearchMovieProps } from './interfaces';
 
 const SearchMovie: React.FC<SearchMovieProps> = ({ onSearch }) => {
   const [genre, setGenre] = useState('');
