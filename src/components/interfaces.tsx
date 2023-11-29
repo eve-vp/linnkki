@@ -2,6 +2,7 @@
 export interface MovieDetails {
   id: number;
   title: string;
+  poster: string;
   overview: string;
   poster_path: string;
   release_date: string;

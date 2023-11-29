@@ -1,7 +1,6 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom/client';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import dataBase from './components/dataBase';
 import App from './App';
 import MovieGrid from './components/MovieGrid';
 import Pagination from './components/Pagination';

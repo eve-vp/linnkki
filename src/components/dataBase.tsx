@@ -2,6 +2,7 @@
 import axios from 'axios';
 import { MovieResponse, MovieDetails } from './interfaces';
 
+
 const MOVIE_DB_BASE_URL = 'https://api.themoviedb.org/3/discover/movie';
 const MOVIE_DB_API_KEY = '480128c3202788f17d08d104b8f5c03c';
 

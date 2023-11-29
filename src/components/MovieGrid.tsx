@@ -34,22 +34,29 @@ const MovieGrid: React.FC = () => {
   useEffect(() => {
     fetchData(currentPage);
   }, [currentPage, selectedGenre, currentOrder]);
-
+  
   const handlePageChange = (page: number) => {
     setCurrentPage(page);
   };
-
+  
   const handleSearch = async (genre: string) => {
     setCurrentPage(1);
     setSelectedGenre(genre);
     fetchData(1);
   };
-
+  
   const handleOrderChange = (order: string) => {
     console.log('Current Order:', order);
     setCurrentOrder(order);
   };
-
+  
+  useEffect(() => {
+    if (selectedGenre || currentOrder) {
+      console.log('Fetching data with Genre:', selectedGenre, 'and Order:', currentOrder);
+    }
+    fetchData(currentPage);
+  }, [currentPage, selectedGenre, currentOrder]);
+  
   return (
     <div className="movie-2010-grid-container">
       <div className="section-with-bars">
