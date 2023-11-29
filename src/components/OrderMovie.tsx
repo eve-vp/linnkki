@@ -27,7 +27,7 @@ const OrderMovie: React.FC<OrderMovieProps> = ({ currentOrder, onOrderChange }) 
   return (
     <div>
       <form onSubmit={handleOrder}>
-        {/* Resto del formulario */}
+      <button type="submit">Order</button>
       </form>
     </div>
   );
