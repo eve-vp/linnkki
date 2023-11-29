@@ -54,7 +54,7 @@
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   grid-gap: 16px;
-  max-height: 400px; /* Establecer una altura máxima */
+  max-height: 430px; /* Establecer una altura máxima */
   padding: 20px;
   overflow-y: auto; /* Agregar un scroll vertical si el contenido es más alto que la altura máxima */
   overflow-x: hidden;
@@ -65,7 +65,7 @@
 }
 
 .movie-grid img {
-  width: 150px;
+  width: 200px;
   height: auto;
 }
 
@@ -75,7 +75,7 @@
   /* padding: 3px; */
   background-color: rgba(163, 230, 221, 0.705);
   color: rgb(0, 0, 0);
-  width: 150px;
+  width: 230px;
   text-align: center;
 }
 
