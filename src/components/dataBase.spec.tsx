@@ -1,6 +1,6 @@
 // dataBase.spec.tsx
 import '@testing-library/jest-dom';
-import axios, { AxiosResponse, AxiosRequestConfig } from 'axios'; // Importa AxiosResponse y AxiosRequestConfig
+import axios, { AxiosResponse } from 'axios'; // Importa AxiosResponse y AxiosRequestConfig
 import { fetchMovies } from './dataBase';
 
 jest.mock('axios');
