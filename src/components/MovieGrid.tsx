@@ -17,13 +17,18 @@ const MovieGrid: React.FC = () => {
   const fetchData = async (page: number = 1) => {
     try {
       setLoading(true);
-      const { results, total_pages } = await fetchMovies(page, selectedGenre, currentOrder);
-      setMovies(results);
-      setTotalPages(total_pages);
-    } catch (error) {
-      console.error('Error fetching data:', error);
-    } finally {
-      setLoading(false);
+    const { results, total_pages } = await fetchMovies({
+      page: page,
+      selectedGenre: selectedGenre,
+      currentOrder: currentOrder,
+      orderTerm: '',
+    });
+    setMovies(results);
+    setTotalPages(total_pages);
+  } catch (error) {
+    console.error('Error fetching data:', error);
+  } finally {
+    setLoading(false);
     }
   };
 
@@ -42,10 +47,12 @@ const MovieGrid: React.FC = () => {
   };
 
   return (
-    <div className="movie-2010-grid-container">
+    <div className="movie-grid-container">
       <div className="section-with-bars">
-        <SearchMovie onSearch={handleSearch} className="left-bar"/>
-        <OrderMovie currentOrder={currentOrder} onOrderChange={setCurrentOrder} className="right-bar"/>
+        <SearchMovie onSearch={handleSearch}/>
+        <OrderMovie  currentOrder={currentOrder} onOrderChange={setCurrentOrder}
+        availableOrders={['popularity.desc','release_date.asc', 'release_date.desc', 'vote_average.asc', 'vote_average.desc']}
+          />
       </div>
       <div className="movie-grid">
         {movies.map((movie) => (

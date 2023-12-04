@@ -7,7 +7,7 @@ export interface Movie {
 }
 
 export interface MovieResponse {
-  page: number;
+  page?: number;
   results: Movie[];
   total_pages: number;
 }
@@ -15,7 +15,8 @@ export interface MovieResponse {
 export interface OrderMovieProps {
   currentOrder: string;
   onOrderChange: (order: string) => void;
-  className?: string; // Propiedad opcional
+  availableOrders: string[]; // Agrega un arreglo de órdenes disponibles
+  // className?: string; // Propiedad opcional
 }
 
 export interface FilterComponentProps {

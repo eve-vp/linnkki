@@ -1,24 +1,36 @@
 // OrderMovie.tsx
-import React from 'react';
+import React, { useState } from 'react';
 import { OrderMovieProps } from './interfaces';
-// import { fetchMovies } from './dataBase';
+import { fetchMovies } from './dataBase';
 
-const OrderMovie: React.FC<OrderMovieProps> = ({ currentOrder, onOrderChange }) => {
-  // const [orderTerm, setOrderTerm] = useState('');
-  // const [orderedMovies, setOrderedMovies] = useState<any[]>([]);
+const OrderMovie: React.FC<OrderMovieProps> = ({ currentOrder, onOrderChange, availableOrders }) => {
+  const [orderTerm, setOrderTerm] = useState<string>(currentOrder);
 
-  const handleOrder = async (e: React.FormEvent) => {
+  const handleOrderChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    setOrderTerm(e.target.value);
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-
-    if (!currentOrder) {
-      alert('Please provide a valid order term');
+  
+    if (!orderTerm) {
+      alert('Please select a valid order term');
       return;
     }
-
+  
+    const normalizedOrderTerm = orderTerm.endsWith('.asc') || orderTerm.endsWith('.desc')
+      ? orderTerm
+      : `${orderTerm}.desc`;
+  
     try {
-      // const movies = await fetchMovies(orderTerm);
-      // setOrderedMovies(movies);
-      onOrderChange(currentOrder);
+      await fetchMovies({
+        page: 1,
+        selectedGenre: '', 
+        currentOrder: '',
+        orderTerm: normalizedOrderTerm,
+      });
+  
+      onOrderChange(normalizedOrderTerm);
     } catch (error) {
       console.error('Error handling order:', error);
     }
@@ -26,10 +38,22 @@ const OrderMovie: React.FC<OrderMovieProps> = ({ currentOrder, onOrderChange }) 
 
   return (
     <div>
-      <form onSubmit={handleOrder}>
-        {/* Resto del formulario */}
-      </form>
-    </div>
+  <form onSubmit={handleSubmit}>
+    <label>
+      <select value={orderTerm} onChange={handleOrderChange}>
+        {availableOrders.map((option) => (
+          <option key={option} value={option}>
+            {option}
+          </option>
+        ))}
+      </select>
+    </label>
+    <button type="submit" className="search-button">
+      Order Movies
+    </button>
+  </form>
+</div>
+
   );
 };
 
