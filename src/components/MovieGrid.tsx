@@ -1,10 +1,13 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from 'react';
+// import axios from 'axios';
 import { fetchMovies } from './dataBase';
 import Pagination from './Pagination';
 import SearchMovie from './SearchMovie';
 import OrderMovie from './OrderMovie';
 import { Movie } from './interfaces';
+import { Link } from 'react-router-dom';
 
 const MovieGrid: React.FC = () => {
   const [movies, setMovies] = useState<Movie[]>([]);
@@ -16,6 +19,7 @@ const MovieGrid: React.FC = () => {
 
   const fetchData = async (page: number = 1) => {
     try {
+      console.log('Fetching data with Genre:', selectedGenre, 'and Order:', currentOrder);
       setLoading(true);
     const { results, total_pages } = await fetchMovies({
       page: page,
@@ -35,17 +39,29 @@ const MovieGrid: React.FC = () => {
   useEffect(() => {
     fetchData(currentPage);
   }, [currentPage, selectedGenre, currentOrder]);
-
+  
   const handlePageChange = (page: number) => {
     setCurrentPage(page);
   };
-
+  
   const handleSearch = async (genre: string) => {
     setCurrentPage(1);
     setSelectedGenre(genre);
     fetchData(1);
   };
-
+  
+  const handleOrderChange = (order: string) => {
+    console.log('Current Order:', order);
+    setCurrentOrder(order);
+  };
+  
+  useEffect(() => {
+    if (selectedGenre || currentOrder) {
+      console.log('Fetching data with Genre:', selectedGenre, 'and Order:', currentOrder);
+    }
+    fetchData(currentPage);
+  }, [currentPage, selectedGenre, currentOrder]);
+  
   return (
     <div className="movie-grid-container">
       <div className="section-with-bars">
@@ -57,11 +73,13 @@ const MovieGrid: React.FC = () => {
       <div className="movie-grid">
         {movies.map((movie) => (
           movie.poster_path && (
-          <div key={movie.id}>
-            <img src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} alt={movie.title} />
-            <h4>{movie.title}</h4>
-            <p>{movie.release_date.split('-')[0]}</p>
-          </div>
+            <div key={movie.id}>
+              <Link to={`/Movies/${movie.id}`}>
+                <img src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} alt={movie.title} />
+              </Link>
+              <h4>{movie.title}</h4>
+              <p>{movie.release_date.split('-')[0]}</p>
+            </div>
           )
         ))}
       </div>
