@@ -1,14 +1,16 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 // interfaces.ts
 export interface MovieDetails {
   id: number;
   title: string;
-  poster: string;
-  overview: string;
   poster_path: string;
   release_date: string;
+  // genres: any;
   genres: Genre[];
   vote_average: number;
   vote_count: number;
+  poster: string; 
+  overview: string;
 }
 
 export interface Genre {
@@ -17,6 +19,7 @@ export interface Genre {
 }
 
 export interface Movie {
+  [x: string]: any;
   id: number;
   title: string;
   poster_path: string;
@@ -41,8 +44,12 @@ export interface FilterComponentProps {
 }
 
 export interface SearchMovieProps {
-  onSearch: (genre: string) => void;
-  className?: string;
+  onSearch: (searchParams: SearchParams) => Promise<void>;
+}
+
+export interface SearchParams {
+  genre: string;
+  year: string;
 }
 
 export interface PaginationProps {
@@ -50,3 +57,4 @@ export interface PaginationProps {
   totalPages: number;
   onPageChange: (page: number) => void;
 }
+
