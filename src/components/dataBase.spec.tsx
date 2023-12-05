@@ -1,6 +1,6 @@
 // dataBase.spec.tsx
 import '@testing-library/jest-dom';
-import axios, { AxiosResponse } from 'axios'; // Importa AxiosResponse y AxiosRequestConfig
+import axios, { AxiosResponse } from 'axios';
 import { fetchMovies } from './dataBase';
 
 jest.mock('axios');
@@ -8,20 +8,22 @@ jest.mock('axios');
 describe('fetchMovies', () => {
   it('should fetch movies with the correct parameters', async () => {
     const movies = {};
-    (axios.get as jest.Mock).mockResolvedValue({ data: movies } as AxiosResponse); // Ajusta el tipo
+    const axiosMock = jest.spyOn(axios, 'get');
+
+    axiosMock.mockResolvedValue({ data: movies } as AxiosResponse);
 
     const options = {
       page: 1,
       selectedGenre: 'action',
       currentOrder: 'popularity.desc',
-      orderTerm: 'someOrderTerm', // Asegúrate de proporcionar un valor para orderTerm
+      orderTerm: 'someOrderTerm',
     };
 
     const result = await fetchMovies(options);
 
-    expect((axios.get as jest.Mock).toHaveBeenCalledWith(
-      'https://api.themoviedb.org/3/discover/movie?api_key=123&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_genres=action&sort_by=someOrderTerm' // Actualiza la URL
-    ));
+    expect(axiosMock).toHaveBeenCalledWith(
+      'https://api.themoviedb.org/3/discover/movie?api_key=123&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_genres=action&sort_by=someOrderTerm'
+    );
     expect(result.results).toEqual(movies);
     expect(result.total_pages).toBeUndefined();
   });
@@ -29,7 +31,8 @@ describe('fetchMovies', () => {
   it('should handle errors', async () => {
     const errorMessage = 'Network Error';
 
-    (axios.get as jest.Mock).mockRejectedValueOnce(new Error(errorMessage) as AxiosResponse); // Ajusta el tipo
+    const axiosMock = jest.spyOn(axios, 'get');
+    axiosMock.mockRejectedValueOnce(new Error(errorMessage) as unknown as AxiosResponse); // Cambia a 'unknown'
 
     await expect(fetchMovies({ page: 1, selectedGenre: 'action', currentOrder: 'popularity.desc', orderTerm: 'someOrderTerm' })).rejects.toThrow(errorMessage);
   });

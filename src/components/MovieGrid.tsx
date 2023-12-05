@@ -63,13 +63,24 @@ const MovieGrid: React.FC = () => {
   }, [currentPage, selectedGenre, currentOrder]);
   
   return (
-    <div className="movie-grid-container">
-      <div className="section-with-bars">
-        <SearchMovie onSearch={handleSearch}/>
-        <OrderMovie  currentOrder={currentOrder} onOrderChange={setCurrentOrder}
-        availableOrders={['popularity.desc','release_date.asc', 'release_date.desc', 'vote_average.asc', 'vote_average.desc']}
-          />
+  <div className="movie-grid-container">
+    <div className="section-with-bars">
+    <div className="images">
+      <img src="tv.png" className="image" />
+      <img src="logoBK.png" className="image" />
       </div>
+  <div className="search-container">
+    <SearchMovie onSearch={handleSearch}/>
+  </div>
+  
+  <div className="order-container">
+    <OrderMovie  
+      currentOrder={currentOrder} 
+      onOrderChange={setCurrentOrder}
+      availableOrders={['popularity.desc','release_date.asc', 'release_date.desc', 'vote_average.asc', 'vote_average.desc']}
+    />
+  </div>
+</div>
       <div className="movie-grid">
         {movies.map((movie) => (
           movie.poster_path && (

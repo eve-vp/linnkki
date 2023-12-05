@@ -6,7 +6,7 @@ import MovieGrid from './components/MovieGrid';
 import Pagination from './components/Pagination';
 import SearchMovie from './components/SearchMovie';
 import OrderMovie from './components/OrderMovie';
-import MovieDetails from './components/MovieDetails';
+// import MovieDetails from './components/MovieDetails';
 
 const rootElement = document.getElementById('root');
 if (!rootElement) {
@@ -23,8 +23,8 @@ root.render(
         <Route path="Movies" element={<MovieGrid />} />
         <Route path="Pagination" element={<Pagination currentPage={0} totalPages={0} onPageChange={() => {}} />} />
         <Route path="SearchMovie" element={<SearchMovie onSearch={() => {}} />} />
-        <Route path="OrderMovie" element={<OrderMovie currentOrder="" onOrderChange={() => {}} />} />
-        <Route path="Movies/:id" element={<MovieDetails />} />
+        <Route path="OrderMovie" element={<OrderMovie currentOrder="" onOrderChange={() => { } } availableOrders={[]} />} />
+        {/* <Route path="Movies/:id" element={<MovieDetails />} /> */}
 
       </Routes>
     </BrowserRouter>

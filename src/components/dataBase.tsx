@@ -1,6 +1,6 @@
 
 // dataBase.tsx
-import axios, { AxiosResponse } from 'axios';
+import axios from 'axios';
 import { MovieResponse } from './interfaces';
 
 const MOVIE_DB_BASE_URL = 'https://api.themoviedb.org/3/discover/movie';

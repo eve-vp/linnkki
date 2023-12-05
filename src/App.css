@@ -1,7 +1,7 @@
 #root {
   font-family: 'Poppins', sans-serif;
   line-height: 1.5;
-  max-width: 1680px;
+  max-width: 1280px;
   font-weight: 400;
   color-scheme: light dark;
   margin: 0 auto;
@@ -31,7 +31,7 @@ body {
     color: #747bff;
   }
   button {
-    background-color: #2c2929;
+    background-color: #69a9bd;
   }
 }
 .logo {
@@ -56,9 +56,25 @@ h1 {
 }
 
 .section-with-bars {
+  height: 30px;
+  background-color: lightblue;
   display: flex;
-  height: 30px; 
+  align-items: center; 
+  padding: 8px;
 }
+
+.search-container, 
+.order-container {
+  margin-right: 10px; 
+  margin-left: 40px
+}
+
+.image {
+  height: 40px;
+  margin-left: 8px; 
+  padding: 8px;
+}
+
 
 /* MovieTable*/
 .movie-grid {
@@ -107,7 +123,6 @@ h1 {
     background-color: #333;
     color: #661a1a;
   }
-
 }
 
 .pagination {
