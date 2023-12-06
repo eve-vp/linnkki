@@ -58,12 +58,7 @@ const MovieGrid: React.FC = () => {
 
   useEffect(() => {
     if (selectedGenre || currentOrder) {
-      console.log(
-        "Fetching data with Genre:",
-        selectedGenre,
-        "and Order:",
-        currentOrder
-      );
+      console.log("Fetching data with Genre:", selectedGenre, "and Order:", currentOrder);
     }
     fetchData(currentPage);
   }, [currentPage, selectedGenre, currentOrder]);
