@@ -1,12 +1,11 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable react-hooks/exhaustive-deps */
+
 import React, { useEffect, useState } from 'react';
-// import axios from 'axios';
 import { fetchMovies } from './dataBase';
 import Pagination from './Pagination';
 import SearchMovie from './SearchMovie';
 import OrderMovie from './OrderMovie';
-import { Movie } from './interfaces';
+import { Movie, SearchParams } from './interfaces';
 import { Link } from 'react-router-dom';
 
 const MovieGrid: React.FC = () => {
@@ -21,20 +20,22 @@ const MovieGrid: React.FC = () => {
     try {
       console.log('Fetching data with Genre:', selectedGenre, 'and Order:', currentOrder);
       setLoading(true);
-    const { results, total_pages } = await fetchMovies({
-      page: page,
-      selectedGenre: selectedGenre,
-      currentOrder: currentOrder,
-      orderTerm: '',
-    });
-    setMovies(results);
-    setTotalPages(total_pages);
-  } catch (error) {
-    console.error('Error fetching data:', error);
-  } finally {
-    setLoading(false);
+      const { results, total_pages } = await fetchMovies({
+        page: page,
+        selectedGenre: selectedGenre,
+        currentOrder: currentOrder,
+        orderTerm: '',
+      });
+      setMovies(results);
+      setTotalPages(total_pages);
+    } catch (error) {
+      console.error('Error fetching data:', error);
+      // Add more specific error handling, e.g., show an error message to the user
+    } finally {
+      setLoading(false);
     }
   };
+  
 
   useEffect(() => {
     fetchData(currentPage);
@@ -44,18 +45,9 @@ const MovieGrid: React.FC = () => {
     setCurrentPage(page);
   };
   
-  const handleSearch = async (genre: string) => {
-    setCurrentPage(1);
-    setSelectedGenre(genre);
-    fetchData(1);
-  };
+
   
-  const handleOrderChange = (order: string) => {
-    console.log('Current Order:', order);
-    setCurrentOrder(order);
-  };
-  
-  useEffect(() => {
+    useEffect(() => {
     if (selectedGenre || currentOrder) {
       console.log('Fetching data with Genre:', selectedGenre, 'and Order:', currentOrder);
     }

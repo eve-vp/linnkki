@@ -1,4 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
+
+import { SetStateAction } from "react";
+
 // interfaces.ts
 export interface MovieDetails {
   id: number;
@@ -48,9 +51,10 @@ export interface SearchMovieProps {
 }
 
 export interface SearchParams {
+  currentOrder(currentOrder: any): unknown;
+  selectedGenre: SetStateAction<string>;
   genre: string;
-  year: string;
-}
+  }
 
 export interface PaginationProps {
   currentPage: number;

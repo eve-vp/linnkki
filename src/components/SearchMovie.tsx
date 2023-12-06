@@ -1,9 +1,9 @@
 /* eslint-disable no-irregular-whitespace */
 import React, { useState, useEffect } from 'react';
-import { Genre, SearchMovieProps } from './interfaces';
+import { Genre, SearchMovieProps, SearchParams } from './interfaces';
 
 const SearchMovie: React.FC<SearchMovieProps> = ({ onSearch }) => {
-  const [genre, setGenre] = useState('');
+  const [genre, setGenre] = useState<string>('');
   const [genres, setGenres] = useState<Genre[]>([]);
 
   useEffect(() => {
@@ -27,7 +27,11 @@ const SearchMovie: React.FC<SearchMovieProps> = ({ onSearch }) => {
   }, []);
 
   const handleSearch = () => {
-    onSearch(genre);
+        const searchParams: SearchParams = {
+      genre: genre,
+      // other properties if any
+    };
+    onSearch(searchParams);
   };
 
   return (
@@ -47,7 +51,6 @@ const SearchMovie: React.FC<SearchMovieProps> = ({ onSearch }) => {
       </button>
     </div>
   );
-
 };
 
 export default SearchMovie;
