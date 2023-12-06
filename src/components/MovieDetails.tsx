@@ -1,6 +1,6 @@
 // MovieDetails.tsx
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import axios, { AxiosError } from 'axios';
 import { useParams } from 'react-router-dom';
 import { MovieDetails as MovieDetailsType } from './interfaces'; // Asegúrate de tener el tipo de datos correcto
 
@@ -14,10 +14,10 @@ const MovieDetails: React.FC = () => {
         // Utiliza el endpoint específico para obtener los detalles de la película
         const response = await axios.get(`https://api.themoviedb.org/3/movie/${movie_id}?api_key=480128c3202788f17d08d104b8f5c03c&language=en-US`);
         const movieDetailsData = response.data;
-
+    
         // Destructuring y asignación condicional de propiedades
         const { id, title, poster_path, release_date, genres, vote_average, vote_count, overview } = movieDetailsData;
-
+    
         const transformedMovieDetails: MovieDetailsType = {
           id,
           title,
@@ -29,13 +29,15 @@ const MovieDetails: React.FC = () => {
           overview,
           poster: `https://image.tmdb.org/t/p/w500/${poster_path}` // Asumiendo que poster_path está disponible
         };
-
+    
         setMovieDetails(transformedMovieDetails);
       } catch (error) {
-        console.error('Error fetching movie details:', error);
+        console.error('Error fetching movie details:', (error as AxiosError).response);
+        // Muestra la respuesta de error para obtener más detalles
         // Maneja los errores, por ejemplo, redirigiendo a una página de error
       }
     };
+    
 
     fetchMovieDetails();
   }, [movie_id]);

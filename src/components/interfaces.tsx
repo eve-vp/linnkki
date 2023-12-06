@@ -48,6 +48,7 @@ export interface FilterComponentProps {
 
 export interface SearchMovieProps {
   onSearch: (searchParams: SearchParams) => Promise<void>;
+  genres: string[];
 }
 
 export interface SearchParams {

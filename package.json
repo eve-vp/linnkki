@@ -8,7 +8,9 @@
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "test": "jest",
-    "test:watch": "jest --watch --collectCoverage"
+    "test:watch": "jest --watch --collectCoverage",
+    "preset": "ts-jest",
+    "testEnvironment": "jsdom"
   },
   "dependencies": {
     "@types/react-bootstrap": "^0.32.35",

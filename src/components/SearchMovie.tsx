@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable no-irregular-whitespace */
 import React, { useState, useEffect } from 'react';
 import { Genre, SearchMovieProps, SearchParams } from './interfaces';
@@ -28,9 +30,12 @@ const SearchMovie: React.FC<SearchMovieProps> = ({ onSearch }) => {
 
   const handleSearch = () => {
         const searchParams: SearchParams = {
-      genre: genre,
-      // other properties if any
-    };
+          genre: genre,
+          currentOrder: function (_currentOrder: any): unknown {
+            throw new Error('Function not implemented.');
+          },
+          selectedGenre: ''
+        };
     onSearch(searchParams);
   };
 
