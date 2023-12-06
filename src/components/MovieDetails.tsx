@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 // MovieDetails.tsx
 import React, { useEffect, useState } from 'react';
 import axios, { AxiosError } from 'axios';
@@ -11,39 +12,53 @@ const MovieDetails: React.FC = () => {
   useEffect(() => {
     const fetchMovieDetails = async () => {
       try {
-        // Utiliza el endpoint específico para obtener los detalles de la película
+        // Verifica si movie_id está definido y no es una cadena vacía
+        if (!movie_id || movie_id.trim() === '') {
+          // Emitir un mensaje de error en tu aplicación o manejar de otra manera
+          return;
+        }
+
         const response = await axios.get(`https://api.themoviedb.org/3/movie/${movie_id}?api_key=480128c3202788f17d08d104b8f5c03c&language=en-US`);
-        const movieDetailsData = response.data;
-    
-        // Destructuring y asignación condicional de propiedades
-        const { id, title, poster_path, release_date, genres, vote_average, vote_count, overview } = movieDetailsData;
-    
-        const transformedMovieDetails: MovieDetailsType = {
-          id,
-          title,
-          poster_path,
-          release_date,
-          genres,
-          vote_average,
-          vote_count,
-          overview,
-          poster: `https://image.tmdb.org/t/p/w500/${poster_path}` // Asumiendo que poster_path está disponible
-        };
-    
-        setMovieDetails(transformedMovieDetails);
+        
+        if (response.status === 404) {
+          console.error('Movie not found');
+          // Emitir un mensaje de error en tu aplicación o manejar de otra manera
+        } else {
+          const movieDetailsData = response.data;
+
+          // Destructuring y asignación condicional de propiedades
+          const { id, title, poster_path, release_date, genres, vote_average, vote_count, overview } = movieDetailsData;
+
+          const transformedMovieDetails = {
+            id,
+            title,
+            poster_path,
+            release_date,
+            genres,
+            vote_average,
+            vote_count,
+            overview,
+            poster: `https://image.tmdb.org/t/p/w500/${poster_path}` // Asumiendo que poster_path está disponible
+          };
+
+          // Actualiza el estado con los detalles de la película
+          setMovieDetails(transformedMovieDetails);
+        }
       } catch (error) {
         console.error('Error fetching movie details:', (error as AxiosError).response);
-        // Muestra la respuesta de error para obtener más detalles
-        // Maneja los errores, por ejemplo, redirigiendo a una página de error
       }
     };
-    
 
+    // Llamar a la función de obtención de detalles de la película
     fetchMovieDetails();
-  }, [movie_id]);
+  }, [movie_id]); // Asegúrate de que la dependencia sea correcta
 
   if (!movieDetails) {
-    return <div>Loading...</div>; // Puedes personalizar el componente de carga según tus necesidades
+    return <div>Loading...</div>; 
+  }
+
+  if (!movieDetails.title) {
+    return <div>Movie not found</div>;
   }
 
   return (
