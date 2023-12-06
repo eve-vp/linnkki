@@ -1,8 +1,8 @@
-## <version 1> - <11/29/2023>
+## <version 2> - <12/06/2023>
 
 ### Sprint learnings
 
-Estoy realizando la vista de movieDetails 
+Estoy realizando la vista de movieDetails y los test
 
 ### Added
 
@@ -14,8 +14,8 @@ cree una nueva branch para trabajar moviedetails
 
 ### Fixed
 
-Se resuelve el index corrupto
+Se resuelve cobertura de test
 
 ### Removed
 
-Removi varios archivos y cambie función, además de clonar nueva mente mi repositorio.
+Removi varios archivos y cambie funciones.
