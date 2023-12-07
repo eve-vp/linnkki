@@ -61,3 +61,4 @@ export const fetchGenres = async () => {
     throw error;
   }
 }; 
+

@@ -4,17 +4,17 @@ import axios, { AxiosError } from 'axios';
 import { useParams } from 'react-router-dom';
 import { MovieDetails as MovieDetailsType } from './interfaces'; // Asegúrate de tener el tipo de datos correcto
 
-const fetchMovieDetails = async (movie_id?: string, setMovieDetails: React.Dispatch<React.SetStateAction<MovieDetailsType | null>>) => {
+//setMovieDetails es el primer parámetro y es requerido
+//movie_id es el segundo parámetro y es opcional
+const fetchMovieDetails = async (
+  setMovieDetails: React.Dispatch<React.SetStateAction<MovieDetailsType | null>>,
+  movie_id?: string,
+) => {
   try {
-    // Verifica si movie_id está definido y no es una cadena vacía
-    if (!movie_id || movie_id.trim() === '') {
-      // TODO: Emitir un mensaje de error en tu aplicación o manejar de otra manera
-      return;
-    }
-
-    const response = await axios.get(`https://api.themoviedb.org/3/movie/${movie_id}?api_key=480128c3202788f17d08d104b8f5c03c&language=en-US`);
+    if (movie_id) {
+      const response = await axios.get(`https://api.themoviedb.org/3/movie/${movie_id}?api_key=480128c3202788f17d08d104b8f5c03c&language=en-US`);
     
-    if (response.status === 404) {
+      if (response.status === 404) {
       console.error('Movie not found');
       // TODO: Emitir un mensaje de error en tu aplicación o manejar de otra manera
     } else {
@@ -35,12 +35,16 @@ const fetchMovieDetails = async (movie_id?: string, setMovieDetails: React.Dispa
         poster: `https://image.tmdb.org/t/p/w500/${poster_path}` // Asumiendo que poster_path está disponible
       };
 
-      // Actualiza el estado con los detalles de la película
-      setMovieDetails(transformedMovieDetails);
-    }
-  } catch (error) {
-    console.error('Error fetching movie details:', (error as AxiosError).response);
+    // Actualiza el estado con los detalles de la película
+    setMovieDetails(transformedMovieDetails);
   }
+} else {
+  // El usuario no proporcionó un ID de película
+  console.error('No movie ID provided');
+}
+} catch (error) {
+console.error('Error fetching movie details:', (error as AxiosError).response);
+}
 };
 
 
@@ -49,10 +53,11 @@ const MovieDetails: React.FC = () => {
   const [movieDetails, setMovieDetails] = useState<MovieDetailsType | null>(null);
 
   useEffect(() => {
-  
+    if (movie_id) {
     // Llamar a la función de obtención de detalles de la película
-    fetchMovieDetails(movie_id, setMovieDetails);
-  }, [movie_id]); // Asegúrate de que la dependencia sea correcta
+    fetchMovieDetails?.(setMovieDetails, movie_id);
+  }
+}, [movie_id]); // Asegúrate de que la dependencia sea correcta
 
   // Verificar si movieDetails es null o undefined antes de intentar acceder a sus propiedades
   if (!movieDetails) {
