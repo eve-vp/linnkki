@@ -207,3 +207,17 @@ h1 {
   background-color: #ffd900; /* Cambia el color de fondo al pasar el cursor sobre el botón */
 }
 
+.movie-details-container {
+  text-align: center;
+  padding: 20px;
+}
+
+.movie-details-container img {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+.movie-details-container h2 {
+  margin-bottom: 10px;
+}

@@ -5,15 +5,18 @@ import { fetchMovies } from './dataBase';
 
 const OrderMovie: React.FC<OrderMovieProps> = ({ currentOrder, onOrderChange, availableOrders }) => {
   const [orderTerm, setOrderTerm] = useState<string>(currentOrder);
+// Estado para el término de orden actual
 
+ // Manejador de evento para el cambio de orden
   const handleOrderChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    setOrderTerm(e.target.value);
+    setOrderTerm(e.target.value); // Actualiza el estado del término de orden
   };
-
+// Manejador de evento para enviar el formulario de orden
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
+    e.preventDefault(); // Evita el comportamiento predeterminado del formulario
   
     if (!orderTerm) {
+      // Muestra una alerta si no se selecciona un término de orden válido
       alert('Please select a valid order term');
       return;
     }
@@ -27,10 +30,11 @@ const OrderMovie: React.FC<OrderMovieProps> = ({ currentOrder, onOrderChange, av
         page: 1,
         selectedGenre: '', 
         currentOrder: '',
-        orderTerm: normalizedOrderTerm,
+        orderTerm: normalizedOrderTerm, // Realiza la solicitud de películas con el término de orden normalizado
       });
   
-      onOrderChange(normalizedOrderTerm);
+      onOrderChange(normalizedOrderTerm); // Llama a la función de cambio de orden con el término de orden normalizado
+    // Maneja errores relacionados con el cambio de orden
     } catch (error) {
       console.error('Error handling order:', error);
     }
