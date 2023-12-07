@@ -9,6 +9,9 @@ import { Movie, SearchParams } from './interfaces';
 import { Link } from 'react-router-dom';
 
 const MovieGrid: React.FC = () => {
+  // movie variable que inicia vacia movies []
+  // setmovies es la funcion que cambia el estado de la variable movies
+  /// React actualiza la vista al cambiar el estado
   const [movies, setMovies] = useState<Movie[]>([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(0);
@@ -31,6 +34,7 @@ const MovieGrid: React.FC = () => {
         currentOrder: currentOrder,
         orderTerm: "",
       });
+      // funcion que llama a los resultados de la api
       setMovies(results);
       setTotalPages(total_pages);
     } catch (error) {
@@ -43,7 +47,8 @@ const MovieGrid: React.FC = () => {
 
   useEffect(() => {
     fetchData(currentPage);
-  }, [currentPage, selectedGenre, currentOrder]);
+  }, [currentPage]);
+  // }, [currentPage, selectedGenre, currentOrder]);
 
   const handlePageChange = (page: number) => {
     setCurrentPage(page);
