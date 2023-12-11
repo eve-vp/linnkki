@@ -5,7 +5,7 @@ import './App.css'
 
 function App() {
   // const [count, setCount] = useState(0)
-  const divStyle = {
+  const divStyle: React.CSSProperties = {
     position: 'absolute',
     top: 0,
     left: 0,
@@ -20,7 +20,7 @@ function App() {
   return (
     <>
       <div style = {divStyle}>
-        <a href="https://vitejs.dev" target="_blank">
+        <a href="https://github.com/eve-vp/linnkki-Movie-Challenge-React" target="_blank">
           <img src={linkkilogo} className="logo" alt="linnki logo" />
         </a>
         </div>

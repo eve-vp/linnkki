@@ -1,10 +1,6 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
-// eslint-disable-next-line @typescript-eslint/no-unused-vars, no-undef
-const merge = require('webpack-merge');
-// eslint-disable-next-line @typescript-eslint/no-unused-vars, no-undef
-const defaultConfig = require('react-scripts/config/webpack.config.js');
-// eslint-disable-next-line @typescript-eslint/no-unused-vars, no-undef
-const customConfig = require('./react.config.js');
+// // webpack.config.js
+// import merge from 'webpack-merge';
+// import defaultConfig from 'react-scripts/config/webpack.config.js';
+// import customConfig from './react.config.js';
 
-// eslint-disable-next-line no-undef
-module
+// export default merge(defaultConfig, customConfig);

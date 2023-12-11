@@ -22,7 +22,7 @@ root.render(
         <Route path="/" element={<App />} />
         <Route path="Movies" element={<MovieGrid />} />
         <Route path="Pagination" element={<Pagination currentPage={0} totalPages={0} onPageChange={() => {}} />} />
-        <Route path="SearchMovie" element={<SearchMovie onSearch={() => {}} />} />
+        <Route path="SearchMovie" element={<SearchMovie onSearch={() => {}} genres={['Action', 'Drama']} />} />
         <Route path="OrderMovie" element={<OrderMovie currentOrder="" onOrderChange={() => { } } availableOrders={[]} />} />
         <Route path="/Movies/:movieId" element={<MovieDetails />} />
       </Routes>

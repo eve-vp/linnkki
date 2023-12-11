@@ -16,7 +16,7 @@ export const fetchMovies = async (options: {
     const { page, selectedGenre, currentOrder, orderTerm } = options;
 
     // Construct the URL for the API request
-    let url = `${MOVIE_DB_BASE_URL}?api_key=${MOVIE_DB_API_KEY}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=${page}&with_genres=${selectedGenre}&certification_country=US&certification=G`;
+    let url = `${MOVIE_DB_BASE_URL}?api_key=${MOVIE_DB_API_KEY}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=${page}&with_genres=${selectedGenre}&certification_country=US`;
 
     if (currentOrder) {
       url += `&sort_by=${currentOrder}`;
