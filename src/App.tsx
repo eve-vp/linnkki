@@ -25,7 +25,7 @@ function App() {
         </a>
         </div>
       <h2>“Welcome to our movie catalog"<br />
-      Are you a fan of movies from the 70s and 80s?
+      Are you a fan of movies?
       </h2>
       <div className="card">
       <div className="container">

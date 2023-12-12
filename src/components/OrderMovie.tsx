@@ -42,23 +42,20 @@ const OrderMovie: React.FC<OrderMovieProps> = ({ currentOrder, onOrderChange, av
 
   return (
     <div>
-  <form onSubmit={handleSubmit}>
-    <label>
-      <select value={orderTerm} onChange={handleOrderChange}>
+    <form onSubmit={handleSubmit}>
+      <label htmlFor="orderSelect"> </label>
+      <select id="orderSelect" value={orderTerm} onChange={handleOrderChange}>
         {availableOrders.map((option) => (
           <option key={option} value={option}>
             {option}
           </option>
         ))}
       </select>
-    </label>
-    <button type="submit" className="search-button">
-      Order Movies
-    </button>
-  </form>
-</div>
-
-  );
-};
-
+      <button type="submit" className="search-button">
+        Order Movies
+      </button>
+    </form>
+  </div>
+);
+}
 export default OrderMovie;

@@ -1,5 +1,5 @@
 import { API_KEY } from "./movie-request";
-import {MovieDetails} from "./types";
+import {MovieDetails} from "./interfaces";
 
 
 export const  getDetails = (movId: number):  Promise<MovieDetails> => 

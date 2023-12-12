@@ -57,7 +57,7 @@ export default function MovieDetails() {
       </div>
 
       <Link to='/Movies'>
-        <button className='back-btn'>Back</button>
+        <button className='back-btn'> ⮌ Back </button>
       </Link>
     </div>
   );
