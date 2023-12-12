@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react';
-import SearchMovie from './SearchMovie';
+import SearchMovie from '../components/SearchMovie';
 
 // Mocking genres data
 const mockGenres = [

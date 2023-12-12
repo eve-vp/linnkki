@@ -14,6 +14,8 @@ export interface MovieDetails {
   vote_count: number;
   poster: string; 
   overview: string;
+  adult: boolean;
+  backdrop_path: string;
 }
 
 export interface Genre {
@@ -62,4 +64,3 @@ export interface PaginationProps {
   totalPages: number;
   onPageChange: (page: number) => void;
 }
-

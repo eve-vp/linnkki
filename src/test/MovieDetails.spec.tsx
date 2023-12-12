@@ -1,6 +1,6 @@
 import { render, waitFor } from '@testing-library/react';
 import { MemoryRouter, Route } from 'react-router-dom';
-import MovieDetails from './MovieDetails';
+import MovieDetails from '../components/MovieDetails';
 import axios from 'axios';
 
 jest.mock('axios');

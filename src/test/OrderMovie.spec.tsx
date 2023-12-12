@@ -1,6 +1,6 @@
 // OrderMovie.spec.tsx
 import { render, fireEvent } from '@testing-library/react';
-import OrderMovie from './OrderMovie';
+import OrderMovie from '../components/OrderMovie';
 
 describe('OrderMovie', () => {
   it('should call onOrderChange with the expected order term', () => {

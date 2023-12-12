@@ -32,7 +32,8 @@ body {
     background-color: #69a9bd;
   }
 }
-.logo {
+.logo
+{
   height: 6em;
   padding: 1.5em;
   will-change: filter;
@@ -67,7 +68,8 @@ h1 {
   margin-left: 40px
 }
 
-.image {
+.image
+{
   height: 40px;
   margin-left: 8px; 
   padding: 8px;
@@ -207,17 +209,59 @@ h1 {
   background-color: #ffd900; /* Cambia el color de fondo al pasar el cursor sobre el botón */
 }
 
-.movie-details-container {
-  text-align: center;
+/* MovieDetail.css */
+
+.movie-container {
+  display: flex;
+  margin: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.img-container {
+  position: relative;
+}
+
+.img-detail {
+  width: 200px;
+  height: 300px;
+  object-fit: cover;
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+}
+
+.back-btn {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background-color: #3498db;
+  color: #fff;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.movie-detail-text {
   padding: 20px;
 }
 
-.movie-details-container img {
-  max-width: 100%;
-  height: auto;
+h1 {
+  color: #333;
+  font-size: 24px;
   margin-bottom: 10px;
 }
 
-.movie-details-container h2 {
-  margin-bottom: 10px;
+.info {
+  margin-bottom: 20px;
 }
+
+.p-detail {
+  margin: 5px 0;
+  color: #666;
+}
+
+
+
