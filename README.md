@@ -1,27 +1,31 @@
 # React + TypeScript + Linkki
 
 <p align="center">
-<img src="public/logoBK.png" alt="LOGO" width="150" height="150">
+<img src="public/logoBK.png" alt="LOGO" width="300" height="150">
 </p>
-
-**LINKKI** es la plataforma donde puedes encontrar información de tus películas favoritas de **todos** y los **generos**.
-
+<p style="text-align: justify;">
+**LINKKI** es la plataforma que te ofrece información sobre tus películas favoritas de **todos los tiempos** y de **todos los géneros**.
+</p>
 
 ### Funcionalidades
 
-En MUVI podrás ordenar las películas por **más recientes** o **más antiguas**
-Podrás filtrar las películas por año de estreno y también podrás elegir entre las categorías **drama** y **comedia**
-Al hacer click sobre una película serás dirigido a una nueva vista, donde verás información relevante de la película seleccionada, como su título, año de estreno, descripción.
-
+En LINKKI, disfrutarás de varias funciones prácticas:
+<p style="text-align: justify;">
+    **1. Ordenación Personalizada:** Clasifica las películas según su fecha de estreno, ya sea de las más recientes a las más antiguas, o viceversa.
+<p style="text-align: justify;">
+    **2.Filtrado por Año:** Selección de Género: Refina tus búsquedas seleccionando entre categorías como drama y comedia, asegurándote de encontrar exactamente lo que te apetece.
+<p style="text-align: justify;">
+    **3.Detalles Complejos:** Al hacer clic en una película, serás redirigido a una vista detallada que ofrece información clave, como el título, año de estreno y una descripción, brindándote una visión completa antes de decidir qué ver.
+   </p>
 
 ## Tecnologías utilizada
 
-Para la construcción de MUVI se utilizó lo siguiente:
-
-- **React**: Como framework para el desarrollo
-- **TypeScript**: Como lenguaje de programación
-- **The Movie Database API V3**: Como API para obtener el catálogo de películas
-
+En la creación de Linkki se emplearon las siguientes tecnologías:
+<p style="text-align: justify;">
+- **React**: Se utilizó como framework principal para el desarrollo.
+- **TypeScript**: Se adoptó como lenguaje de programación para mejorar la calidad y mantenimiento del código
+- **The Movie Database API V3**: Se integró como la API principal para obtener el extenso catálogo de películas disponible.
+</p>
 
 ## Diseño y desarrollo
 
@@ -37,7 +41,6 @@ Para la construcción de MUVI se utilizó lo siguiente:
 ![Prototipo de alta fidelidad](public/Prototipo3.png)
 
 
-3. **Desarrollo**: LINKKI se desarrolló en base a los prototipos buscando siempre un diseño intuitivo y fácil
-de comprender para el usuario.
+3. **Desarrollo**: LINKKI se desarrolló en base a los prototipos buscando siempre un diseño intuitivo y fácil de comprender para el usuario.
 
 No olvides visitar **[LINKKI](https://linkki-react.vercel.app)**
