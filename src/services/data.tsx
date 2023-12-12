@@ -62,17 +62,17 @@ export const fetchGenres = async () => {
   }
 }; 
 
-export const getMovieInfo = (movieId: number): Promise<MovieInfo> =>
-  new Promise((resolve, reject) => {
-    const options = {
-      method: 'GET',
-      headers: {
-        accept: 'application/json',
-        Authorization: MOVIE_DB_API_KEY
-      }
-    };
-    fetch(`https://api.themoviedb.org/3/movie/${movieId}?language=en-US`, options)
-      .then((response) => response.json())
-      .then((response) => resolve(response))
-      .catch((err) => reject(err));
-  });
+export const getMovieInfo = (movieId: number): Promise<MovieInfo> => {
+  const options = {
+    params: {
+      api_key: MOVIE_DB_API_KEY,
+    },
+  };
+    return axios
+    .get(`https://api.themoviedb.org/3/movie/${movieId}?language=en-US`, options)
+    .then((response) => response.data)
+    .catch((error) => {
+      console.error('Error fetching movie info:', error);
+      throw error;
+    });
+};

@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { GenreData, MovieInfo } from '../services/interfaces';
 import { getMovieInfo } from '../services/data';
-import Notfound from '../public/Notfound.gif';
+import Notfound from '../assets/Notfound.gif';
 
 export default function MovieDetails() {
   const [movie, setMovie] = useState<MovieInfo>();
@@ -18,7 +18,14 @@ export default function MovieDetails() {
 
   return (
     <div className="movie-detail-container">
-      {/* Resto del código... */}
+    <header className="header">
+      <div className="section-with-bars">
+        <div className="images">
+          <img src="../public/tv.png" className="image" alt="TV Icon" />
+          <img src="../public/logoBK.png" className="image" alt="Logo" />
+        </div>
+      </div>
+    </header>
 
       <div className='movie-container'>
         <div className='img-container'>
@@ -35,12 +42,17 @@ export default function MovieDetails() {
         <div className='movie-detail-text'>
           <div className='section-title'>
             <p className='title-info'>{movie?.title}</p>
-            <p className='yearP'>{new Date(movie?.release_date || '').getFullYear()}</p>
+            <p className='yearP'>{movie?.release_date ? new Date(movie.release_date).getFullYear() : 'N/A'}</p>
+
           </div>
           <p className='infoMovie'>{movie?.overview}</p>
-          <p className='category'> {movie?.genres
-            .filter((genre) => genre.id === 27 || genre.id === 53)
-            .map((genre: GenreData) => genre.name).join(', ')}</p>
+          <p className='category'>
+          {movie?.genres && movie.genres
+          .filter((genre) => genre.id === 27 || genre.id === 53)
+            .map((genre: GenreData) => genre.name)
+          .join(', ')
+          }
+        </p>
         </div>
       </div>
 
