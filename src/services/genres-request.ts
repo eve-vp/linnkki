@@ -1,4 +1,4 @@
-import { Genre } from './types';
+import { Genre } from './interfaces';
 import { API_KEY} from "./movie-request";
 
 export const getGenres = (genre:number): Promise<Genre[]> =>
