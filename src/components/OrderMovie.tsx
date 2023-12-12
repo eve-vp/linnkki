@@ -1,7 +1,7 @@
 // OrderMovie.tsx
 import React, { useState } from 'react';
-import { OrderMovieProps } from './interfaces';
-import { fetchMovies } from './dataBase';
+import { OrderMovieProps } from '../services/interfaces';
+import { fetchMovies } from '../services/data';
 
 const OrderMovie: React.FC<OrderMovieProps> = ({ currentOrder, onOrderChange, availableOrders }) => {
   const [orderTerm, setOrderTerm] = useState<string>(currentOrder);

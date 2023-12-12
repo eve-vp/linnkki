@@ -75,7 +75,6 @@ h1 {
   padding: 8px;
 }
 
-
 /* MovieTable*/
 .movie-grid {
   display: grid;
@@ -211,7 +210,13 @@ h1 {
 
 /* MovieDetail.css */
 
+.movie-detail-container {
+  margin: 30px;
+  max-width: 1280px;
+}
+
 .movie-container {
+  
   display: flex;
   margin: 20px;
   background-color: #fff;
@@ -233,9 +238,9 @@ h1 {
 
 .back-btn {
   position: absolute;
-  top: 10px;
-  left: 10px;
-  background-color: #3498db;
+  top: 30px;
+  left: 30px;
+  background-color: rgba(163, 230, 221, 0.9);
   color: #fff;
   padding: 8px 16px;
   border: none;
@@ -244,8 +249,15 @@ h1 {
   font-size: 16px;
 }
 
+.back-btn:hover {
+  background-color: #ffd900;
+}
+
 .movie-detail-text {
+  flex: 1; /* Añade flex: 1 para que ocupe el espacio restante */
   padding: 20px;
+  display: flex; /* Usa flexbox para alinear verticalmente el texto */
+  flex-direction: column; /* Apila el contenido verticalmente */
 }
 
 h1 {
@@ -253,6 +265,7 @@ h1 {
   font-size: 24px;
   margin-bottom: 10px;
 }
+
 
 .info {
   margin-bottom: 20px;

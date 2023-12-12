@@ -1,11 +1,11 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 
 import React, { useEffect, useState } from 'react';
-import { fetchMovies } from './dataBase';
+import { fetchMovies } from '../services/data';
 import Pagination from './Pagination';
 import SearchMovie from './SearchMovie';
 import OrderMovie from './OrderMovie';
-import { Movie, SearchParams } from './interfaces';
+import { Movie, SearchParams } from '../services/interfaces';
 import { Link } from 'react-router-dom';
 
 const MovieGrid: React.FC = () => {

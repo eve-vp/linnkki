@@ -1,4 +1,4 @@
-import { PaginationProps } from './interfaces';
+import { PaginationProps } from '../services/interfaces';
 
 const Pagination: React.FC<PaginationProps> = ({ currentPage, totalPages, onPageChange }) => {
   const rangeSize = 10; // ajustar el tamaño del rango

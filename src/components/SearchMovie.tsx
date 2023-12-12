@@ -2,7 +2,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable no-irregular-whitespace */
 import React, { useState, useEffect } from 'react';
-import { Genre, SearchMovieProps, SearchParams } from './interfaces';
+import { Genre, SearchMovieProps, SearchParams } from '../services/interfaces';
 
 const SearchMovie: React.FC<SearchMovieProps> = ({ onSearch }) => {
   const [genre, setGenre] = useState<string>('');

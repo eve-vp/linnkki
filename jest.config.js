@@ -1,6 +1,5 @@
 /* eslint-disable no-undef */
 // jest.config.js
-// jest.config.js
 module.exports = {
   moduleNameMapper: {
     '\\.css$': '<rootDir>/test/styleMock.js', // Cambia la extensión si es necesario
