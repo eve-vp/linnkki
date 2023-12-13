@@ -1,8 +1,9 @@
-## <version 2> - <12/06/2023>
+## <version 3> - <12/06/2023>
 
 ### Sprint learnings
 
-Estoy realizando la vista de movieDetails y los test
+Culminado la vista de movieDetails, los test y readme.
+No puedo hacer deploy en Vercel porun problema de navegador que no puedo resolver sobre rutas de map
 
 ### Added
 
@@ -10,11 +11,10 @@ Estoy realizando la vista de movieDetails y los test
 
 ### Changed
 organice las interfaces y database.
-cree una nueva branch para trabajar moviedetails
 
 ### Fixed
 
-Se resuelve cobertura de test
+Se resuelve moviedetails
 
 ### Removed
 
